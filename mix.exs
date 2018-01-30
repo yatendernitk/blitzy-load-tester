@@ -7,6 +7,8 @@ defmodule Blitzy.MixProject do
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
+      # 1
+      escript: [main_module: Blitzy.CLI],
       deps: deps()
     ]
   end

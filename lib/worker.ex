@@ -8,6 +8,7 @@ defmodule Blitzy.Worker do
   end
 
   def start(url, caller, func \\ &HTTPoison.get/1) do
+    IO.puts("Running on #node-#{node}")
     {timestamp, response} = Duration.measure(fn -> func.(url) end)
 
     caller

@@ -19,8 +19,7 @@ defmodule Blitzy do
   end
 
   def start(_type, _args) do
-    opts = [strategy: :one_for_one]
-    Supervisor.start_link([], opts)
+    Blitzy.Supervisor.start_link(:ok)
   end
 
   def run(n_workers, url) when n_workers > 0 do
@@ -61,6 +60,7 @@ defmodule Blitzy do
 
   defp average(list) do
     sum = Enum.sum(list)
+
     if sum > 0 do
       sum / Enum.count(list)
     else
